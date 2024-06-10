@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'python:3.8-alpine'
+                    image 'python:3.12-alpine'
                 }
             }
             steps {
@@ -12,7 +12,7 @@ pipeline {
                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
-	stage('Test') {
+        stage('Test') {
             agent {
                 docker {
                     image 'grihabor/pytest'
@@ -27,7 +27,7 @@ pipeline {
                 }
             }
         }
-	stage('Deliver') {
+        stage('Deliver') {
             agent any
             environment {
                 VOLUME = '$(pwd)/sources:/src'
