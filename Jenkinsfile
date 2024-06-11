@@ -42,6 +42,8 @@ pipeline {
             post {
                 success {
                     archiveArtifacts "${env.BUILD_ID}/sources/dist/prog"
+                    sh "sudo chown -R jenkins:jenkins ${env.BUILD_ID}/sources/build"
+                    sh "sudo chown -R jenkins:jenkins ${env.BUILD_ID}/sources/dist"
                     sh "rm -rf ${env.BUILD_ID}/sources/build ${env.BUILD_ID}/sources/dist"
                 }
             }
