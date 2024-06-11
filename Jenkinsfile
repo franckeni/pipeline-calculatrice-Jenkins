@@ -48,5 +48,15 @@ pipeline {
                 }
             }*/
         }
+    } post {
+        always {
+            echo 'Testing Jenkins build'
+        }
+        success {
+            echo 'Jenkins build Done Successfully'
+        }
+        failure {
+            echo 'Jenkins build Done with failure'
+        }
     }
 }
