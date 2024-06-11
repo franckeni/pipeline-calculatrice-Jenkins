@@ -48,7 +48,8 @@ pipeline {
                 }
             }*/
         }
-    } post {
+    } 
+    post {
         always {
             echo 'Testing Jenkins build'
         }
